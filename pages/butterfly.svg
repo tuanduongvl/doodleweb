@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="white"/>
+  <!-- Wings -->
+  <!-- Left wing -->
+  <path d="M200,200 Q120,140 80,100 Q60,80 100,130 Q130,165 160,180 Q120,150 90,180 Q75,200 130,200 Q160,200 190,205" fill="white" stroke="black" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- Left wing inner pattern -->
+  <path d="M165,185 Q130,160 100,140" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M155,190 Q125,175 105,165" fill="none" stroke="black" stroke-width="2"/>
+  <ellipse cx="115" cy="150" rx="12" ry="18" fill="white" stroke="black" stroke-width="2" transform="rotate(-30 115 150)"/>
+  <ellipse cx="140" cy="170" rx="10" ry="15" fill="white" stroke="black" stroke-width="2" transform="rotate(-20 140 170)"/>
+  <!-- Right wing -->
+  <path d="M200,200 Q280,140 320,100 Q340,80 300,130 Q270,165 240,180 Q280,150 310,180 Q325,200 270,200 Q240,200 210,205" fill="white" stroke="black" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- Right wing inner pattern -->
+  <path d="M235,185 Q270,160 300,140" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M245,190 Q275,175 295,165" fill="none" stroke="black" stroke-width="2"/>
+  <ellipse cx="285" cy="150" rx="12" ry="18" fill="white" stroke="black" stroke-width="2" transform="rotate(30 285 150)"/>
+  <ellipse cx="260" cy="170" rx="10" ry="15" fill="white" stroke="black" stroke-width="2" transform="rotate(20 260 170)"/>
+  <!-- Body -->
+  <ellipse cx="200" cy="230" rx="28" ry="55" fill="white" stroke="black" stroke-width="4"/>
+  <!-- Head -->
+  <circle cx="200" cy="170" r="30" fill="white" stroke="black" stroke-width="4"/>
+  <!-- Antennae -->
+  <line x1="190" y1="142" x2="178" y2="108" stroke="black" stroke-width="3"/>
+  <circle cx="175" cy="105" r="6" fill="white" stroke="black" stroke-width="3"/>
+  <line x1="210" y1="142" x2="222" y2="108" stroke="black" stroke-width="3"/>
+  <circle cx="225" cy="105" r="6" fill="white" stroke="black" stroke-width="3"/>
+  <!-- Eyes -->
+  <circle cx="188" cy="168" r="8" fill="white" stroke="black" stroke-width="3"/>
+  <circle cx="212" cy="168" r="8" fill="white" stroke="black" stroke-width="3"/>
+  <circle cx="188" cy="168" r="3" fill="black"/>
+  <circle cx="212" cy="168" r="3" fill="black"/>
+  <!-- Smile -->
+  <path d="M192,178 Q200,185 208,178" fill="none" stroke="black" stroke-width="2.5"/>
+  <!-- Body stripes -->
+  <path d="M178,210 Q200,207 222,210" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M176,225 Q200,222 224,225" fill="none" stroke="black" stroke-width="2"/>
+  <!-- Legs -->
+  <line x1="185" y1="280" x2="178" y2="310" stroke="black" stroke-width="3"/>
+  <line x1="195" y1="282" x2="190" y2="314" stroke="black" stroke-width="3"/>
+  <line x1="205" y1="282" x2="210" y2="314" stroke="black" stroke-width="3"/>
+  <line x1="215" y1="280" x2="222" y2="310" stroke="black" stroke-width="3"/>
+  <!-- Label -->
+  <text x="200" y="375" text-anchor="middle" font-family="Arial" font-size="18" fill="black">🦋 Butterfly</text>
+</svg>

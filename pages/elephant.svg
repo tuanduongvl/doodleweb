@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="white"/>
+  <!-- Body -->
+  <ellipse cx="195" cy="255" rx="110" ry="85" fill="white" stroke="black" stroke-width="4"/>
+  <!-- Head -->
+  <circle cx="195" cy="145" r="70" fill="white" stroke="black" stroke-width="4"/>
+  <!-- Left ear (big) -->
+  <ellipse cx="118" cy="145" rx="32" ry="55" fill="white" stroke="black" stroke-width="4"/>
+  <ellipse cx="118" cy="145" rx="20" ry="40" fill="white" stroke="black" stroke-width="2"/>
+  <!-- Right ear (big) -->
+  <ellipse cx="272" cy="145" rx="32" ry="55" fill="white" stroke="black" stroke-width="4"/>
+  <ellipse cx="272" cy="145" rx="20" ry="40" fill="white" stroke="black" stroke-width="2"/>
+  <!-- Eyes -->
+  <circle cx="170" cy="130" r="16" fill="white" stroke="black" stroke-width="3.5"/>
+  <circle cx="220" cy="130" r="16" fill="white" stroke="black" stroke-width="3.5"/>
+  <circle cx="167" cy="130" r="7" fill="black"/>
+  <circle cx="217" cy="130" r="7" fill="black"/>
+  <circle cx="164" cy="127" r="3" fill="white"/>
+  <circle cx="214" cy="127" r="3" fill="white"/>
+  <!-- Trunk -->
+  <path d="M180,175 Q165,195 155,210 Q140,230 150,255 Q160,275 178,268" fill="none" stroke="black" stroke-width="10" stroke-linecap="round"/>
+  <path d="M180,175 Q165,195 155,210 Q140,230 150,255 Q160,275 178,268" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <!-- Trunk wrinkles -->
+  <path d="M170,200 Q162,203 158,208" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M163,218 Q155,222 152,227" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M152,240 Q146,244 147,250" fill="none" stroke="black" stroke-width="2"/>
+  <!-- Mouth -->
+  <path d="M200,168 Q210,175 215,168" fill="none" stroke="black" stroke-width="2.5"/>
+  <!-- Tusk -->
+  <path d="M210,172 Q228,185 232,200" fill="none" stroke="black" stroke-width="4" stroke-linecap="round"/>
+  <!-- Legs -->
+  <rect x="120" y="315" width="48" height="65" rx="20" fill="white" stroke="black" stroke-width="3.5"/>
+  <rect x="178" y="320" width="44" height="60" rx="20" fill="white" stroke="black" stroke-width="3.5"/>
+  <rect x="232" y="315" width="48" height="65" rx="20" fill="white" stroke="black" stroke-width="3.5"/>
+  <!-- Toenails -->
+  <path d="M126,375 Q130,382 136,378" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M136,377 Q140,384 146,380" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M146,376 Q150,383 156,379" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M238,375 Q242,382 248,378" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M248,377 Q252,384 258,380" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M258,376 Q262,383 268,379" fill="none" stroke="black" stroke-width="2"/>
+  <!-- Tail -->
+  <path d="M305,255 Q330,250 335,265 Q338,275 328,278" fill="none" stroke="black" stroke-width="4" stroke-linecap="round"/>
+  <!-- Tail tuft -->
+  <circle cx="325" cy="280" r="6" fill="white" stroke="black" stroke-width="2"/>
+  <line x1="320" y1="283" x2="316" y2="292" stroke="black" stroke-width="2"/>
+  <line x1="325" y1="286" x2="325" y2="295" stroke="black" stroke-width="2"/>
+  <line x1="330" y1="283" x2="334" y2="292" stroke="black" stroke-width="2"/>
+  <!-- Flower (in trunk curl) -->
+  <circle cx="182" cy="268" r="12" fill="white" stroke="black" stroke-width="2.5"/>
+  <circle cx="182" cy="268" r="5" fill="white" stroke="black" stroke-width="2"/>
+  <ellipse cx="182" cy="254" rx="5" ry="8" fill="white" stroke="black" stroke-width="2"/>
+  <ellipse cx="182" cy="282" rx="5" ry="8" fill="white" stroke="black" stroke-width="2"/>
+  <ellipse cx="168" cy="268" rx="8" ry="5" fill="white" stroke="black" stroke-width="2"/>
+  <ellipse cx="196" cy="268" rx="8" ry="5" fill="white" stroke="black" stroke-width="2"/>
+  <!-- Label -->
+  <text x="200" y="397" text-anchor="middle" font-family="Arial" font-size="16" fill="black">🐘 Elephant</text>
+</svg>

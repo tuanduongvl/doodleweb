@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Doodle" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <title>Doodle &amp; Color</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Canvas -->
+  <canvas id="canvas"></canvas>
+
+  <!-- Toolbar -->
+  <div id="toolbar" role="toolbar" aria-label="Drawing tools">
+
+    <!-- Color Palette -->
+    <div class="tool-group" id="palette">
+      <!-- Rainbow special swatch -->
+      <button class="swatch swatch-rainbow" id="swatchRainbow" title="Rainbow" aria-label="Rainbow"></button>
+      <!-- 20 pastel swatches -->
+      <button class="swatch active" data-color="#ffb3ba" style="background:#ffb3ba" title="Pastel Pink"></button>
+      <button class="swatch" data-color="#ffcba4" style="background:#ffcba4" title="Pastel Peach"></button>
+      <button class="swatch" data-color="#ffd700" style="background:#ffd700" title="Pastel Yellow"></button>
+      <button class="swatch" data-color="#fffacd" style="background:#fffacd" title="Lemon Chiffon"></button>
+      <button class="swatch" data-color="#b5ead7" style="background:#b5ead7" title="Pastel Mint"></button>
+      <button class="swatch" data-color="#c7f2a4" style="background:#c7f2a4" title="Pastel Green"></button>
+      <button class="swatch" data-color="#a8d8ea" style="background:#a8d8ea" title="Sky Blue"></button>
+      <button class="swatch" data-color="#b3cde0" style="background:#b3cde0" title="Pastel Blue"></button>
+      <button class="swatch" data-color="#cdb4db" style="background:#cdb4db" title="Pastel Lavender"></button>
+      <button class="swatch" data-color="#e8b4e8" style="background:#e8b4e8" title="Pastel Lilac"></button>
+      <button class="swatch" data-color="#ffc8dd" style="background:#ffc8dd" title="Pastel Rose"></button>
+      <button class="swatch" data-color="#ffafcc" style="background:#ffafcc" title="Flamingo"></button>
+      <button class="swatch" data-color="#d4f1f4" style="background:#d4f1f4" title="Pastel Cyan"></button>
+      <button class="swatch" data-color="#a0c4ff" style="background:#a0c4ff" title="Cornflower"></button>
+      <button class="swatch" data-color="#ffdac1" style="background:#ffdac1" title="Apricot"></button>
+      <button class="swatch" data-color="#e2f0cb" style="background:#e2f0cb" title="Honeydew"></button>
+      <button class="swatch" data-color="#f9e4b7" style="background:#f9e4b7" title="Pastel Amber"></button>
+      <button class="swatch" data-color="#d5e8d4" style="background:#d5e8d4" title="Sage"></button>
+      <button class="swatch" data-color="#ebebeb" style="background:#ebebeb" title="Pastel Gray"></button>
+      <button class="swatch" data-color="#ffffff" style="background:#fff;border:2px solid #555" title="White"></button>
+      <!-- Custom color picker -->
+      <label class="swatch swatch-picker" title="Custom color" aria-label="Custom color">
+        🎨
+        <input type="color" id="colorPicker" value="#ffb3ba" />
+      </label>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Brush size -->
+    <div class="tool-group" id="size-group">
+      <span class="tool-label">Size</span>
+      <input type="range" id="brushSize" min="1" max="60" value="6" aria-label="Brush size" />
+      <span id="sizeDisplay" class="size-display">6</span>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Tools -->
+    <div class="tool-group" id="tools">
+      <button class="tool-btn active" id="btnPen" title="Pen (P)" aria-label="Pen">✏️</button>
+      <button class="tool-btn" id="btnBucket" title="Fill (F)" aria-label="Paint Bucket">🪣</button>
+      <button class="tool-btn" id="btnEraser" title="Eraser (E)" aria-label="Eraser">🧹</button>
+      <button class="tool-btn" id="btnUndo" title="Undo (Ctrl+Z)" aria-label="Undo">↩️</button>
+      <button class="tool-btn" id="btnClear" title="Clear" aria-label="Clear canvas">🗑️</button>
+      <button class="tool-btn" id="btnSave" title="Save PNG" aria-label="Save as PNG">💾</button>
+      <button class="tool-btn" id="btnPages" title="Coloring Pages" aria-label="Coloring Pages">📖</button>
+    </div>
+  </div>
+
+  <!-- Coloring Pages Side Panel -->
+  <div id="pagesPanel" aria-label="Coloring Pages" role="dialog">
+    <div id="pagesPanelHeader">
+      <span id="pagesPanelTitle">🎨 Coloring Pages</span>
+      <button id="btnClosePanel" aria-label="Close panel">×</button>
+    </div>
+    <p id="pagesPanelHint">Tap a page to start coloring!</p>
+    <div id="pagesGrid">
+      <button class="page-thumb" data-src="pages/cat.svg" title="Cat">
+        <img src="pages/cat.svg" alt="Cat" loading="lazy" />
+        <span>Cat</span>
+      </button>
+      <button class="page-thumb" data-src="pages/butterfly.svg" title="Butterfly">
+        <img src="pages/butterfly.svg" alt="Butterfly" loading="lazy" />
+        <span>Butterfly</span>
+      </button>
+      <button class="page-thumb" data-src="pages/dinosaur.svg" title="Dinosaur">
+        <img src="pages/dinosaur.svg" alt="Dinosaur" loading="lazy" />
+        <span>Dinosaur</span>
+      </button>
+      <button class="page-thumb" data-src="pages/rocket.svg" title="Rocket">
+        <img src="pages/rocket.svg" alt="Rocket" loading="lazy" />
+        <span>Rocket</span>
+      </button>
+      <button class="page-thumb" data-src="pages/flowers.svg" title="Flowers">
+        <img src="pages/flowers.svg" alt="Flowers" loading="lazy" />
+        <span>Flowers</span>
+      </button>
+      <button class="page-thumb" data-src="pages/fish.svg" title="Fish">
+        <img src="pages/fish.svg" alt="Fish" loading="lazy" />
+        <span>Fish</span>
+      </button>
+      <button class="page-thumb" data-src="pages/house.svg" title="House">
+        <img src="pages/house.svg" alt="House" loading="lazy" />
+        <span>House</span>
+      </button>
+      <button class="page-thumb" data-src="pages/elephant.svg" title="Elephant">
+        <img src="pages/elephant.svg" alt="Elephant" loading="lazy" />
+        <span>Elephant</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Confirm modal -->
+  <div id="confirmModal" role="dialog" aria-modal="true" aria-label="Confirm">
+    <div id="confirmBox">
+      <p id="confirmMsg">Load this coloring page? Your current drawing will be cleared.</p>
+      <div id="confirmBtns">
+        <button id="confirmOk" class="confirm-btn confirm-ok">Yes, load it!</button>
+        <button id="confirmCancel" class="confirm-btn confirm-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

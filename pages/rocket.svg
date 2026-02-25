@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="white"/>
+  <!-- Stars -->
+  <polygon points="60,50 65,65 80,65 68,74 73,89 60,80 47,89 52,74 40,65 55,65" fill="white" stroke="black" stroke-width="1.5"/>
+  <polygon points="340,80 344,93 358,93 347,101 351,114 340,106 329,114 333,101 322,93 336,93" fill="white" stroke="black" stroke-width="1.5"/>
+  <polygon points="100,30 103,39 113,39 105,45 108,54 100,49 92,54 95,45 87,39 97,39" fill="white" stroke="black" stroke-width="1.5"/>
+  <polygon points="310,40 312,47 320,47 314,52 316,59 310,55 304,59 306,52 300,47 308,47" fill="white" stroke="black" stroke-width="1.5"/>
+  <polygon points="50,150 53,159 62,159 55,165 58,174 50,168 42,174 45,165 38,159 47,159" fill="white" stroke="black" stroke-width="1.5"/>
+  <polygon points="360,140 362,148 370,148 364,153 366,161 360,157 354,161 356,153 350,148 358,148" fill="white" stroke="black" stroke-width="1.5"/>
+  <!-- Rocket body -->
+  <path d="M200,60 Q230,80 235,160 L235,280 Q200,300 165,280 L165,160 Q170,80 200,60 Z" fill="white" stroke="black" stroke-width="4"/>
+  <!-- Nose cone -->
+  <path d="M200,60 Q230,80 235,160 Q200,140 165,160 Q170,80 200,60 Z" fill="white" stroke="black" stroke-width="3"/>
+  <!-- Window -->
+  <circle cx="200" cy="200" r="30" fill="white" stroke="black" stroke-width="4"/>
+  <circle cx="200" cy="200" r="20" fill="white" stroke="black" stroke-width="2.5"/>
+  <!-- Smiley in window -->
+  <circle cx="193" cy="196" r="3" fill="black"/>
+  <circle cx="207" cy="196" r="3" fill="black"/>
+  <path d="M193,206 Q200,213 207,206" fill="none" stroke="black" stroke-width="2.5"/>
+  <!-- Side fins left -->
+  <path d="M165,230 L130,280 L165,270 Z" fill="white" stroke="black" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Side fins right -->
+  <path d="M235,230 L270,280 L235,270 Z" fill="white" stroke="black" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Booster flames -->
+  <path d="M175,280 Q180,310 172,335 Q185,315 188,335 Q195,310 200,340 Q205,310 212,335 Q215,315 228,335 Q220,310 225,280" fill="white" stroke="black" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Body stripe detail -->
+  <path d="M168,180 Q200,175 232,180" fill="none" stroke="black" stroke-width="2"/>
+  <!-- Stars around rocket -->
+  <circle cx="80" cy="200" r="3" fill="black"/>
+  <circle cx="90" cy="240" r="4" fill="black"/>
+  <circle cx="320" cy="180" r="3" fill="black"/>
+  <circle cx="310" cy="220" r="4" fill="black"/>
+  <circle cx="70" cy="280" r="2" fill="black"/>
+  <circle cx="330" cy="260" r="2" fill="black"/>
+  <!-- Label -->
+  <text x="200" y="385" text-anchor="middle" font-family="Arial" font-size="18" fill="black">🚀 Rocket</text>
+</svg>

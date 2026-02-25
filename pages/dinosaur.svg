@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="white"/>
+  <!-- Tail -->
+  <path d="M300,300 Q360,260 350,200" fill="none" stroke="black" stroke-width="5" stroke-linecap="round"/>
+  <!-- Body -->
+  <ellipse cx="180" cy="290" rx="100" ry="65" fill="white" stroke="black" stroke-width="4"/>
+  <!-- Neck -->
+  <path d="M160,225 Q150,185 165,155" fill="none" stroke="black" stroke-width="35" stroke-linecap="round"/>
+  <path d="M160,225 Q150,185 165,155" fill="none" stroke="white" stroke-width="27" stroke-linecap="round"/>
+  <path d="M160,225 Q150,185 165,155" fill="none" stroke="black" stroke-width="27" stroke-linecap="butt" stroke-dasharray="0"/>
+  <!-- Neck outline redraw -->
+  <path d="M143,222 Q133,182 148,152" fill="none" stroke="black" stroke-width="4"/>
+  <path d="M177,226 Q167,186 182,158" fill="none" stroke="black" stroke-width="4"/>
+  <!-- Head -->
+  <ellipse cx="180" cy="135" rx="50" ry="38" fill="white" stroke="black" stroke-width="4"/>
+  <!-- Eye -->
+  <circle cx="165" cy="128" r="10" fill="white" stroke="black" stroke-width="3"/>
+  <circle cx="163" cy="128" r="4" fill="black"/>
+  <!-- Nostril -->
+  <ellipse cx="145" cy="140" rx="6" ry="4" fill="white" stroke="black" stroke-width="2.5" transform="rotate(-15 145 140)"/>
+  <!-- Mouth line -->
+  <path d="M140,148 Q155,155 165,148" fill="none" stroke="black" stroke-width="2.5"/>
+  <!-- Teeth -->
+  <path d="M145,150 Q148,156 151,150 Q154,156 157,150 Q160,156 163,150" fill="none" stroke="black" stroke-width="2"/>
+  <!-- Tiny arms -->
+  <path d="M230,240 Q275,215 285,180" fill="none" stroke="black" stroke-width="6" stroke-linecap="round"/>
+  <path d="M230,240 Q275,215 285,180" fill="none" stroke="white" stroke-width="0"/>
+  <!-- Arm outline -->
+  <path d="M224,237 Q268,210 278,176" fill="none" stroke="black" stroke-width="3"/>
+  <path d="M236,243 Q282,220 292,184" fill="none" stroke="black" stroke-width="3"/>
+  <!-- Hand fingers -->
+  <line x1="278" y1="176" x2="270" y2="162" stroke="black" stroke-width="3"/>
+  <line x1="285" y1="180" x2="282" y2="164" stroke="black" stroke-width="3"/>
+  <line x1="292" y1="184" x2="295" y2="168" stroke="black" stroke-width="3"/>
+  <!-- Legs -->
+  <path d="M120,345 Q110,370 95,380" fill="none" stroke="black" stroke-width="14" stroke-linecap="round"/>
+  <path d="M120,345 Q110,370 95,380" fill="none" stroke="white" stroke-width="6"/>
+  <path d="M160,352 Q155,378 145,385" fill="none" stroke="black" stroke-width="14" stroke-linecap="round"/>
+  <path d="M160,352 Q155,378 145,385" fill="none" stroke="white" stroke-width="6"/>
+  <!-- Feet -->
+  <ellipse cx="90" cy="383" rx="20" ry="8" fill="white" stroke="black" stroke-width="3"/>
+  <ellipse cx="143" cy="387" rx="18" ry="8" fill="white" stroke="black" stroke-width="3"/>
+  <!-- Body spots -->
+  <ellipse cx="180" cy="285" rx="18" ry="12" fill="white" stroke="black" stroke-width="2"/>
+  <ellipse cx="220" cy="300" rx="14" ry="10" fill="white" stroke="black" stroke-width="2"/>
+  <!-- Label -->
+  <text x="200" y="395" text-anchor="middle" font-family="Arial" font-size="18" fill="black">🦖 Dinosaur</text>
+</svg>

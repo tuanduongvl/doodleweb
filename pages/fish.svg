@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="white"/>
+  <!-- Underwater background lines (water ripples) -->
+  <path d="M30,50 Q100,40 170,50 Q240,60 310,50 Q360,44 390,50" fill="none" stroke="black" stroke-width="1.5" opacity="0.4"/>
+  <path d="M20,70 Q90,60 160,70 Q230,80 300,70 Q355,64 390,70" fill="none" stroke="black" stroke-width="1.5" opacity="0.4"/>
+  <!-- Seaweed left -->
+  <path d="M60,380 Q45,350 65,330 Q80,310 60,285 Q45,260 65,240 Q80,220 65,200" fill="none" stroke="black" stroke-width="4" stroke-linecap="round"/>
+  <path d="M60,285 Q90,275 80,260" fill="none" stroke="black" stroke-width="3" stroke-linecap="round"/>
+  <path d="M65,330 Q35,320 40,305" fill="none" stroke="black" stroke-width="3" stroke-linecap="round"/>
+  <!-- Seaweed right -->
+  <path d="M340,380 Q355,345 335,320 Q318,295 340,270 Q358,248 338,225 Q320,205 340,185" fill="none" stroke="black" stroke-width="4" stroke-linecap="round"/>
+  <path d="M338,270 Q310,262 315,248" fill="none" stroke="black" stroke-width="3" stroke-linecap="round"/>
+  <!-- Big Fish body -->
+  <ellipse cx="195" cy="200" rx="100" ry="65" fill="white" stroke="black" stroke-width="4"/>
+  <!-- Fish tail -->
+  <path d="M295,200 Q340,160 360,175 Q340,200 360,225 Q340,240 295,200 Z" fill="white" stroke="black" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- Fish eye -->
+  <circle cx="130" cy="185" r="18" fill="white" stroke="black" stroke-width="3.5"/>
+  <circle cx="126" cy="183" r="8" fill="black"/>
+  <circle cx="123" cy="180" r="3" fill="white"/>
+  <!-- Fish mouth -->
+  <path d="M95,200 Q100,215 112,212" fill="none" stroke="black" stroke-width="3"/>
+  <!-- Fish smile -->
+  <path d="M97,205 Q103,210 110,208" fill="none" stroke="black" stroke-width="2"/>
+  <!-- Scales -->
+  <path d="M160,160 Q175,145 195,155" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M195,155 Q210,140 230,150" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M230,150 Q245,135 265,148" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M145,175 Q162,160 180,170" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M180,170 Q197,155 215,165" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M215,165 Q232,150 252,162" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M145,215 Q162,228 180,218" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M180,218 Q197,232 215,222" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M215,222 Q232,236 252,226" fill="none" stroke="black" stroke-width="2"/>
+  <!-- Dorsal fin -->
+  <path d="M175,135 Q195,100 230,130 Q210,135 190,135 Z" fill="white" stroke="black" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- Belly fin -->
+  <path d="M170,255 Q195,285 220,260 Q200,255 180,258 Z" fill="white" stroke="black" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- Bubbles -->
+  <circle cx="80" cy="130" r="10" fill="white" stroke="black" stroke-width="2.5"/>
+  <circle cx="65" cy="105" r="7" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="90" cy="85" r="5" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="100" cy="150" r="6" fill="white" stroke="black" stroke-width="2"/>
+  <!-- Small fish -->
+  <ellipse cx="310" cy="130" rx="25" ry="15" fill="white" stroke="black" stroke-width="2.5"/>
+  <path d="M335,130 Q348,120 352,130 Q348,140 335,130 Z" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="298" cy="126" r="5" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="296" cy="125" r="2" fill="black"/>
+  <!-- Sand at bottom -->
+  <path d="M0,370 Q50,360 100,368 Q150,376 200,368 Q250,360 300,368 Q350,376 400,368 L400,400 L0,400 Z" fill="white" stroke="black" stroke-width="3"/>
+  <!-- Shell on sand -->
+  <path d="M160,372 Q175,358 190,372 Q175,378 160,372 Z" fill="white" stroke="black" stroke-width="2"/>
+  <path d="M175,360 Q175,372" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Label -->
+  <text x="200" y="397" text-anchor="middle" font-family="Arial" font-size="16" fill="black">🐟 Fish</text>
+</svg>

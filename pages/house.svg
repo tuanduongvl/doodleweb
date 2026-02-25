@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="white"/>
+  <!-- Sun -->
+  <circle cx="60" cy="60" r="30" fill="white" stroke="black" stroke-width="3"/>
+  <line x1="60" y1="22" x2="60" y2="10" stroke="black" stroke-width="2.5"/>
+  <line x1="60" y1="98" x2="60" y2="110" stroke="black" stroke-width="2.5"/>
+  <line x1="22" y1="60" x2="10" y2="60" stroke="black" stroke-width="2.5"/>
+  <line x1="98" y1="60" x2="110" y2="60" stroke="black" stroke-width="2.5"/>
+  <line x1="34" y1="34" x2="26" y2="26" stroke="black" stroke-width="2.5"/>
+  <line x1="86" y1="86" x2="94" y2="94" stroke="black" stroke-width="2.5"/>
+  <line x1="86" y1="34" x2="94" y2="26" stroke="black" stroke-width="2.5"/>
+  <line x1="34" y1="86" x2="26" y2="94" stroke="black" stroke-width="2.5"/>
+  <!-- Clouds -->
+  <path d="M150,55 Q155,40 170,42 Q175,30 190,33 Q205,30 210,42 Q225,40 228,55 Q228,65 218,65 L160,65 Q150,65 150,55 Z" fill="white" stroke="black" stroke-width="2.5"/>
+  <path d="M260,45 Q264,33 276,35 Q280,24 293,27 Q305,24 308,35 Q320,33 323,45 Q323,54 315,54 L268,54 Q260,54 260,45 Z" fill="white" stroke="black" stroke-width="2.5"/>
+  <!-- House body -->
+  <rect x="100" y="180" width="200" height="160" fill="white" stroke="black" stroke-width="4" rx="4"/>
+  <!-- Roof -->
+  <polygon points="80,180 200,80 320,180" fill="white" stroke="black" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Roof tiles (optional lines) -->
+  <line x1="130" y1="165" x2="200" y2="105" stroke="black" stroke-width="1.5"/>
+  <line x1="160" y1="173" x2="200" y2="133" stroke="black" stroke-width="1.5"/>
+  <line x1="270" y1="165" x2="200" y2="105" stroke="black" stroke-width="1.5"/>
+  <line x1="240" y1="173" x2="200" y2="133" stroke="black" stroke-width="1.5"/>
+  <!-- Chimney -->
+  <rect x="240" y="95" width="28" height="55" fill="white" stroke="black" stroke-width="3"/>
+  <!-- Smoke -->
+  <path d="M250,92 Q244,78 252,68" fill="none" stroke="black" stroke-width="2" stroke-linecap="round"/>
+  <path d="M260,92 Q268,75 260,62" fill="none" stroke="black" stroke-width="2" stroke-linecap="round"/>
+  <!-- Door -->
+  <rect x="170" y="270" width="60" height="70" rx="30" fill="white" stroke="black" stroke-width="3.5"/>
+  <circle cx="224" cy="308" r="4" fill="black"/>
+  <!-- Windows -->
+  <rect x="115" y="210" width="55" height="45" rx="5" fill="white" stroke="black" stroke-width="3"/>
+  <line x1="142" y1="210" x2="142" y2="255" stroke="black" stroke-width="2"/>
+  <line x1="115" y1="232" x2="170" y2="232" stroke="black" stroke-width="2"/>
+  <rect x="230" y="210" width="55" height="45" rx="5" fill="white" stroke="black" stroke-width="3"/>
+  <line x1="257" y1="210" x2="257" y2="255" stroke="black" stroke-width="2"/>
+  <line x1="230" y1="232" x2="285" y2="232" stroke="black" stroke-width="2"/>
+  <!-- Fence -->
+  <line x1="30" y1="340" x2="370" y2="340" stroke="black" stroke-width="3"/>
+  <line x1="30" y1="360" x2="370" y2="360" stroke="black" stroke-width="3"/>
+  <line x1="40" y1="325" x2="40" y2="375" stroke="black" stroke-width="2.5"/>
+  <path d="M33,325 L40,318 L47,325" fill="none" stroke="black" stroke-width="2.5"/>
+  <line x1="70" y1="325" x2="70" y2="375" stroke="black" stroke-width="2.5"/>
+  <path d="M63,325 L70,318 L77,325" fill="none" stroke="black" stroke-width="2.5"/>
+  <line x1="100" y1="325" x2="100" y2="375" stroke="black" stroke-width="2.5"/>
+  <path d="M93,325 L100,318 L107,325" fill="none" stroke="black" stroke-width="2.5"/>
+  <line x1="300" y1="325" x2="300" y2="375" stroke="black" stroke-width="2.5"/>
+  <path d="M293,325 L300,318 L307,325" fill="none" stroke="black" stroke-width="2.5"/>
+  <line x1="330" y1="325" x2="330" y2="375" stroke="black" stroke-width="2.5"/>
+  <path d="M323,325 L330,318 L337,325" fill="none" stroke="black" stroke-width="2.5"/>
+  <line x1="360" y1="325" x2="360" y2="375" stroke="black" stroke-width="2.5"/>
+  <path d="M353,325 L360,318 L367,325" fill="none" stroke="black" stroke-width="2.5"/>
+  <!-- Tree -->
+  <rect x="335" y="260" width="12" height="80" fill="white" stroke="black" stroke-width="2.5"/>
+  <circle cx="341" cy="235" r="35" fill="white" stroke="black" stroke-width="3"/>
+  <circle cx="320" cy="248" r="22" fill="white" stroke="black" stroke-width="2.5"/>
+  <circle cx="362" cy="248" r="22" fill="white" stroke="black" stroke-width="2.5"/>
+  <!-- Ground -->
+  <path d="M0,375 Q200,368 400,375 L400,400 L0,400 Z" fill="white" stroke="black" stroke-width="2.5"/>
+  <!-- Flowers in garden -->
+  <circle cx="50" cy="340" r="8" fill="white" stroke="black" stroke-width="2"/>
+  <line x1="50" y1="348" x2="50" y2="365" stroke="black" stroke-width="2"/>
+  <circle cx="75" cy="335" r="6" fill="white" stroke="black" stroke-width="2"/>
+  <line x1="75" y1="341" x2="75" y2="360" stroke="black" stroke-width="2"/>
+  <!-- Label -->
+  <text x="200" y="398" text-anchor="middle" font-family="Arial" font-size="16" fill="black">🏡 House</text>
+</svg>
