@@ -9,10 +9,12 @@
   let isErasing = false;
   let isFilling = false;
   let isRainbow = false;
+  let isGlitter = false;
   let rainbowHue = 0;          // current hue for rainbow mode (0-360)
   let isDrawing = false;
   let lastX = 0, lastY = 0;
   let activePid = null;
+  let glitterPattern = null;
 
   // ─── Canvas Setup ──────────────────────────────────────────────────────────
   const canvas = document.getElementById('canvas');
@@ -77,8 +79,46 @@
     return brushSize * (0.4 + 1.2 * pressure);
   }
 
+  function buildGlitterPattern(baseColor) {
+    const patternCanvas = document.createElement('canvas');
+    const size = 36;
+    patternCanvas.width = size;
+    patternCanvas.height = size;
+    const pctx = patternCanvas.getContext('2d');
+
+    pctx.fillStyle = baseColor;
+    pctx.fillRect(0, 0, size, size);
+
+    for (let i = 0; i < 24; i++) {
+      const x = Math.random() * size;
+      const y = Math.random() * size;
+      const r = 0.6 + Math.random() * 1.4;
+      pctx.fillStyle = `rgba(255, 255, 255, ${0.55 + Math.random() * 0.4})`;
+      pctx.beginPath();
+      pctx.arc(x, y, r, 0, Math.PI * 2);
+      pctx.fill();
+    }
+
+    for (let i = 0; i < 10; i++) {
+      const x = Math.random() * size;
+      const y = Math.random() * size;
+      const r = 0.4 + Math.random() * 0.8;
+      pctx.fillStyle = `rgba(255, 255, 255, ${0.2 + Math.random() * 0.3})`;
+      pctx.beginPath();
+      pctx.arc(x, y, r, 0, Math.PI * 2);
+      pctx.fill();
+    }
+
+    return ctx.createPattern(patternCanvas, 'repeat');
+  }
+
   function activeStrokeColor() {
-    return isRainbow ? rainbowColor() : currentColor;
+    if (isRainbow) return rainbowColor();
+    if (isGlitter) {
+      if (!glitterPattern) glitterPattern = buildGlitterPattern(currentColor);
+      return glitterPattern;
+    }
+    return currentColor;
   }
 
   // ─── Flood Fill (Paint Bucket) ─────────────────────────────────────────────
@@ -136,6 +176,7 @@
     // Scanline stack flood fill (fast)
     const stack = [[px, py]];
     const visited = new Uint8Array(w * h);
+    const sparkleModulo = 97;
 
     while (stack.length) {
       const [cx, cy] = stack.pop();
@@ -151,6 +192,13 @@
       data[idx + 1] = fillCol[1];
       data[idx + 2] = fillCol[2];
       data[idx + 3] = fillCol[3];
+
+      if (isGlitter && !isRainbow && i % sparkleModulo === 0) {
+        data[idx] = 255;
+        data[idx + 1] = 255;
+        data[idx + 2] = 255;
+        data[idx + 3] = 255;
+      }
 
       stack.push([cx + 1, cy], [cx - 1, cy], [cx, cy + 1], [cx, cy - 1]);
     }
@@ -224,6 +272,8 @@
   function applySelectedColor(activeEl) {
     setActiveSwatch(activeEl);
     deactivateRainbow();
+    isGlitter = activeEl.classList.contains('swatch-glitter');
+    glitterPattern = isGlitter ? buildGlitterPattern(currentColor) : null;
     if (isErasing) {
       deactivateEraser();
     }
@@ -244,6 +294,8 @@
   swatchRainbow.addEventListener('click', () => {
     isRainbow = !isRainbow;
     if (isRainbow) {
+      isGlitter = false;
+      glitterPattern = null;
       applySelectedColor(swatchRainbow);
     } else {
       swatchRainbow.classList.remove('active');
@@ -260,6 +312,8 @@
 
   colorPicker.addEventListener('input', () => {
     currentColor = colorPicker.value;
+    isGlitter = false;
+    glitterPattern = null;
     applySelectedColor(pickerSwatch);
   });
   pickerSwatch.addEventListener('click', () => colorPicker.click());
