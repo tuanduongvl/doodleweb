@@ -8,7 +8,7 @@
 }
 
 :root {
-  --toolbar-h: 120px;
+  --toolbar-h: 132px;
   --toolbar-bg: rgba(15, 15, 30, 0.82);
   --accent: #6a4c93;
   --radius: 14px;
@@ -74,7 +74,8 @@ body {
 /* Row 1: palette scrolls horizontally */
 .toolbar-row--palette {
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
+  padding: 4px 0;
   scrollbar-width: none;
   flex-shrink: 0;
 }
@@ -118,6 +119,8 @@ body {
   border: 2px solid transparent;
   cursor: pointer;
   flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
   transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
   outline: none;
   appearance: none;
@@ -271,6 +274,44 @@ body {
 .swatch-rainbow.active {
   border-color: #fff;
   box-shadow: 0 0 0 2px #fff, 0 2px 12px rgba(255, 180, 0, 0.6);
+}
+
+/* === Glitter swatches === */
+.swatch-glitter::after {
+  content: '';
+  position: absolute;
+  inset: -35%;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.7) 0 1.5px, transparent 3px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.6) 0 1px, transparent 2px);
+  background-size: 16px 16px, 22px 22px, 28px 28px;
+  background-position: 0 0, 6px 10px, 12px 4px;
+  mix-blend-mode: screen;
+  opacity: 0.85;
+  pointer-events: none;
+  animation: glitter-drift 3.5s linear infinite;
+}
+
+.swatch-glitter::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.35), transparent 55%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+@keyframes glitter-drift {
+  0% {
+    transform: translate(-6px, -6px);
+  }
+  50% {
+    transform: translate(6px, 4px);
+  }
+  100% {
+    transform: translate(-6px, -6px);
+  }
 }
 
 /* === Eraser / Fill cursor === */

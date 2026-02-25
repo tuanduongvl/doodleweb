@@ -4,7 +4,7 @@
   // ─── State ─────────────────────────────────────────────────────────────────
   const MAX_UNDO = 30;
   let undoStack = [];
-  let currentColor = '#ffb3ba';  // first pastel
+  let currentColor = '#ff4d6d';  // first core hue
   let brushSize = 6;
   let isErasing = false;
   let isFilling = false;
@@ -221,14 +221,21 @@
 
   // ─── Color Palette ─────────────────────────────────────────────────────────
   const swatches = document.querySelectorAll('.swatch[data-color]');
+  function applySelectedColor(activeEl) {
+    setActiveSwatch(activeEl);
+    deactivateRainbow();
+    if (isErasing) {
+      deactivateEraser();
+    }
+    if (!isFilling) {
+      activatePen(false);
+    }
+  }
+
   swatches.forEach(btn => {
     btn.addEventListener('click', () => {
       currentColor = btn.dataset.color;
-      setActiveSwatch(btn);
-      deactivateRainbow();
-      deactivateEraser();
-      deactivateFill();
-      activatePen(false);
+      applySelectedColor(btn);
     });
   });
 
@@ -237,10 +244,7 @@
   swatchRainbow.addEventListener('click', () => {
     isRainbow = !isRainbow;
     if (isRainbow) {
-      setActiveSwatch(swatchRainbow);
-      deactivateEraser();
-      deactivateFill();
-      activatePen(false);
+      applySelectedColor(swatchRainbow);
     } else {
       swatchRainbow.classList.remove('active');
       // Reactivate first pastel as default
@@ -256,11 +260,7 @@
 
   colorPicker.addEventListener('input', () => {
     currentColor = colorPicker.value;
-    setActiveSwatch(pickerSwatch);
-    deactivateRainbow();
-    deactivateEraser();
-    deactivateFill();
-    activatePen(false);
+    applySelectedColor(pickerSwatch);
   });
   pickerSwatch.addEventListener('click', () => colorPicker.click());
 
