@@ -19,60 +19,59 @@
   <!-- Toolbar -->
   <div id="toolbar" role="toolbar" aria-label="Drawing tools">
 
-    <!-- Color Palette -->
-    <div class="tool-group" id="palette">
-      <!-- Rainbow special swatch -->
-      <button class="swatch swatch-rainbow" id="swatchRainbow" title="Rainbow" aria-label="Rainbow"></button>
-      <!-- 20 pastel swatches -->
-      <button class="swatch active" data-color="#ffb3ba" style="background:#ffb3ba" title="Pastel Pink"></button>
-      <button class="swatch" data-color="#ffcba4" style="background:#ffcba4" title="Pastel Peach"></button>
-      <button class="swatch" data-color="#ffd700" style="background:#ffd700" title="Pastel Yellow"></button>
-      <button class="swatch" data-color="#fffacd" style="background:#fffacd" title="Lemon Chiffon"></button>
-      <button class="swatch" data-color="#b5ead7" style="background:#b5ead7" title="Pastel Mint"></button>
-      <button class="swatch" data-color="#c7f2a4" style="background:#c7f2a4" title="Pastel Green"></button>
-      <button class="swatch" data-color="#a8d8ea" style="background:#a8d8ea" title="Sky Blue"></button>
-      <button class="swatch" data-color="#b3cde0" style="background:#b3cde0" title="Pastel Blue"></button>
-      <button class="swatch" data-color="#cdb4db" style="background:#cdb4db" title="Pastel Lavender"></button>
-      <button class="swatch" data-color="#e8b4e8" style="background:#e8b4e8" title="Pastel Lilac"></button>
-      <button class="swatch" data-color="#ffc8dd" style="background:#ffc8dd" title="Pastel Rose"></button>
-      <button class="swatch" data-color="#ffafcc" style="background:#ffafcc" title="Flamingo"></button>
-      <button class="swatch" data-color="#d4f1f4" style="background:#d4f1f4" title="Pastel Cyan"></button>
-      <button class="swatch" data-color="#a0c4ff" style="background:#a0c4ff" title="Cornflower"></button>
-      <button class="swatch" data-color="#ffdac1" style="background:#ffdac1" title="Apricot"></button>
-      <button class="swatch" data-color="#e2f0cb" style="background:#e2f0cb" title="Honeydew"></button>
-      <button class="swatch" data-color="#f9e4b7" style="background:#f9e4b7" title="Pastel Amber"></button>
-      <button class="swatch" data-color="#d5e8d4" style="background:#d5e8d4" title="Sage"></button>
-      <button class="swatch" data-color="#ebebeb" style="background:#ebebeb" title="Pastel Gray"></button>
-      <button class="swatch" data-color="#ffffff" style="background:#fff;border:2px solid #555" title="White"></button>
-      <!-- Custom color picker -->
-      <label class="swatch swatch-picker" title="Custom color" aria-label="Custom color">
-        🎨
-        <input type="color" id="colorPicker" value="#ffb3ba" />
-      </label>
+    <!-- Row 1: Color Palette -->
+    <div class="toolbar-row toolbar-row--palette">
+      <div class="tool-group" id="palette">
+        <!-- Rainbow special swatch -->
+        <button class="swatch swatch-rainbow" id="swatchRainbow" title="Rainbow" aria-label="Rainbow"></button>
+        <!-- 20 pastel swatches -->
+        <button class="swatch active" data-color="#ffb3ba" style="background:#ffb3ba" title="Pastel Pink"></button>
+        <button class="swatch" data-color="#ffcba4" style="background:#ffcba4" title="Pastel Peach"></button>
+        <button class="swatch" data-color="#ffd700" style="background:#ffd700" title="Pastel Yellow"></button>
+        <button class="swatch" data-color="#fffacd" style="background:#fffacd" title="Lemon Chiffon"></button>
+        <button class="swatch" data-color="#b5ead7" style="background:#b5ead7" title="Pastel Mint"></button>
+        <button class="swatch" data-color="#c7f2a4" style="background:#c7f2a4" title="Pastel Green"></button>
+        <button class="swatch" data-color="#a8d8ea" style="background:#a8d8ea" title="Sky Blue"></button>
+        <button class="swatch" data-color="#b3cde0" style="background:#b3cde0" title="Pastel Blue"></button>
+        <button class="swatch" data-color="#cdb4db" style="background:#cdb4db" title="Pastel Lavender"></button>
+        <button class="swatch" data-color="#e8b4e8" style="background:#e8b4e8" title="Pastel Lilac"></button>
+        <button class="swatch" data-color="#ffc8dd" style="background:#ffc8dd" title="Pastel Rose"></button>
+        <button class="swatch" data-color="#ffafcc" style="background:#ffafcc" title="Flamingo"></button>
+        <button class="swatch" data-color="#d4f1f4" style="background:#d4f1f4" title="Pastel Cyan"></button>
+        <button class="swatch" data-color="#a0c4ff" style="background:#a0c4ff" title="Cornflower"></button>
+        <button class="swatch" data-color="#ffdac1" style="background:#ffdac1" title="Apricot"></button>
+        <button class="swatch" data-color="#e2f0cb" style="background:#e2f0cb" title="Honeydew"></button>
+        <button class="swatch" data-color="#f9e4b7" style="background:#f9e4b7" title="Pastel Amber"></button>
+        <button class="swatch" data-color="#d5e8d4" style="background:#d5e8d4" title="Sage"></button>
+        <button class="swatch" data-color="#ebebeb" style="background:#ebebeb" title="Pastel Gray"></button>
+        <button class="swatch" data-color="#ffffff" style="background:#fff;border:2px solid #555" title="White"></button>
+        <!-- Custom color picker -->
+        <label class="swatch swatch-picker" title="Custom color" aria-label="Custom color">
+          🎨
+          <input type="color" id="colorPicker" value="#ffb3ba" />
+        </label>
+      </div>
     </div>
 
-    <!-- Divider -->
-    <div class="divider"></div>
+    <!-- Row 2: Size + Tools -->
+    <div class="toolbar-row toolbar-row--tools">
+      <div class="tool-group" id="size-group">
+        <span class="tool-label">Size</span>
+        <input type="range" id="brushSize" min="1" max="60" value="6" aria-label="Brush size" />
+        <span id="sizeDisplay" class="size-display">6</span>
+      </div>
 
-    <!-- Brush size -->
-    <div class="tool-group" id="size-group">
-      <span class="tool-label">Size</span>
-      <input type="range" id="brushSize" min="1" max="60" value="6" aria-label="Brush size" />
-      <span id="sizeDisplay" class="size-display">6</span>
-    </div>
+      <div class="divider"></div>
 
-    <!-- Divider -->
-    <div class="divider"></div>
-
-    <!-- Tools -->
-    <div class="tool-group" id="tools">
-      <button class="tool-btn active" id="btnPen" title="Pen (P)" aria-label="Pen">✏️</button>
-      <button class="tool-btn" id="btnBucket" title="Fill (F)" aria-label="Paint Bucket">🪣</button>
-      <button class="tool-btn" id="btnEraser" title="Eraser (E)" aria-label="Eraser">🧹</button>
-      <button class="tool-btn" id="btnUndo" title="Undo (Ctrl+Z)" aria-label="Undo">↩️</button>
-      <button class="tool-btn" id="btnClear" title="Clear" aria-label="Clear canvas">🗑️</button>
-      <button class="tool-btn" id="btnSave" title="Save PNG" aria-label="Save as PNG">💾</button>
-      <button class="tool-btn" id="btnPages" title="Coloring Pages" aria-label="Coloring Pages">📖</button>
+      <div class="tool-group" id="tools">
+        <button class="tool-btn active" id="btnPen" title="Pen (P)" aria-label="Pen">✏️</button>
+        <button class="tool-btn" id="btnBucket" title="Fill (F)" aria-label="Paint Bucket">🪣</button>
+        <button class="tool-btn" id="btnEraser" title="Eraser (E)" aria-label="Eraser">🧹</button>
+        <button class="tool-btn" id="btnUndo" title="Undo (Ctrl+Z)" aria-label="Undo">↩️</button>
+        <button class="tool-btn" id="btnClear" title="Clear" aria-label="Clear canvas">🗑️</button>
+        <button class="tool-btn" id="btnSave" title="Save PNG" aria-label="Save as PNG">💾</button>
+        <button class="tool-btn" id="btnPages" title="Coloring Pages" aria-label="Coloring Pages">📖</button>
+      </div>
     </div>
   </div>
 

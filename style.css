@@ -8,7 +8,7 @@
 }
 
 :root {
-  --toolbar-h: 88px;
+  --toolbar-h: 120px;
   --toolbar-bg: rgba(15, 15, 30, 0.82);
   --accent: #6a4c93;
   --radius: 14px;
@@ -50,23 +50,43 @@ body {
   right: 0;
   height: var(--toolbar-h);
   display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 16px;
-  padding-bottom: env(safe-area-inset-bottom, 0);
-  /* iPhone-style notch support */
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 12px;
+  padding-bottom: max(6px, env(safe-area-inset-bottom, 6px));
   background: var(--toolbar-bg);
   backdrop-filter: blur(18px) saturate(180%);
   -webkit-backdrop-filter: blur(18px) saturate(180%);
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   z-index: 10;
+  overflow: visible;
+}
+
+/* Each visual row inside the toolbar */
+.toolbar-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+/* Row 1: palette scrolls horizontally */
+.toolbar-row--palette {
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
+  flex-shrink: 0;
 }
 
-#toolbar::-webkit-scrollbar {
+.toolbar-row--palette::-webkit-scrollbar {
   display: none;
+}
+
+/* Row 2: tools stretch to fill */
+.toolbar-row--tools {
+  flex-shrink: 0;
+  justify-content: space-between;
 }
 
 /* === Tool Groups === */
@@ -88,6 +108,7 @@ body {
 /* === Color Swatches === */
 #palette {
   flex-wrap: nowrap;
+  flex-shrink: 0;
 }
 
 .swatch {
@@ -143,10 +164,15 @@ body {
   white-space: nowrap;
 }
 
+#size-group {
+  flex: 1;
+  min-width: 0;
+}
+
 #brushSize {
   -webkit-appearance: none;
   appearance: none;
-  width: 90px;
+  width: 100%;
   height: 4px;
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.2);
@@ -259,7 +285,7 @@ body.fill-mode #canvas {
 /* === Landscape on small screens === */
 @media (max-height: 500px) {
   :root {
-    --toolbar-h: 60px;
+    --toolbar-h: 96px;
   }
 
   .swatch {
