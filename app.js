@@ -152,14 +152,16 @@
   }
 
   function floodFill(startX, startY) {
-    const dpr = window.devicePixelRatio || 1;
-    const px = Math.floor(startX * dpr);
-    const py = Math.floor(startY * dpr);
+  const dpr = window.devicePixelRatio || 1;
+  const px = Math.floor(startX * dpr);
+  const py = Math.floor(startY * dpr);
 
     const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const data = imgData.data;
-    const w = canvas.width;
-    const h = canvas.height;
+  const w = canvas.width;
+  const h = canvas.height;
+  const cw = w / dpr;
+  const ch = h / dpr;
 
     const startIdx = (py * w + px) * 4;
     const targetCol = [data[startIdx], data[startIdx + 1], data[startIdx + 2], data[startIdx + 3]];
@@ -224,7 +226,7 @@
 
       ctx.save();
       ctx.globalCompositeOperation = 'source-over';
-      ctx.drawImage(glitterCanvas, 0, 0);
+      ctx.drawImage(glitterCanvas, 0, 0, w, h, 0, 0, cw, ch);
       ctx.restore();
     }
     applyContextDefaults();
