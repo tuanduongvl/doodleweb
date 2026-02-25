@@ -385,7 +385,10 @@
   const pagesPanel = document.getElementById('pagesPanel');
   const btnPages = document.getElementById('btnPages');
   const btnClosePanel = document.getElementById('btnClosePanel');
-  const pageThumbs = document.querySelectorAll('.page-thumb');
+  const pagesGrid = document.getElementById('pagesGrid');
+  const pagesPanelHint = document.getElementById('pagesPanelHint');
+  let pageThumbs = [];
+  const supportedExtensions = new Set(['.svg', '.png', '.jpg', '.jpeg', '.gif', '.webp', '.bmp']);
 
   function openPanel() {
     pagesPanel.classList.add('open');
@@ -400,6 +403,101 @@
     pagesPanel.classList.contains('open') ? closePanel() : openPanel();
   });
   btnClosePanel.addEventListener('click', closePanel);
+
+  function isSupportedImage(fileName) {
+    const lower = fileName.toLowerCase();
+    for (const ext of supportedExtensions) {
+      if (lower.endsWith(ext)) return true;
+    }
+    return false;
+  }
+
+  function normalizePageHref(href) {
+    try {
+      const url = new URL(href, window.location.href);
+      if (!url.pathname.includes('/pages/')) return null;
+      if (url.pathname.endsWith('/')) return null;
+      const file = url.pathname.split('/').pop();
+      if (!file) return null;
+      return `pages/${decodeURIComponent(file)}`;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  function extractPageLinks(html) {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return Array.from(doc.querySelectorAll('a'))
+      .map(a => a.getAttribute('href'))
+      .filter(Boolean)
+      .map(normalizePageHref)
+      .filter(Boolean);
+  }
+
+  function normalizeManifestEntry(entry) {
+    if (typeof entry !== 'string') return null;
+    const trimmed = entry.trim();
+    if (!trimmed || trimmed.endsWith('/')) return null;
+    if (!isSupportedImage(trimmed)) return null;
+    return trimmed.startsWith('pages/') ? trimmed : `pages/${trimmed}`;
+  }
+
+  function addPageThumb(src) {
+    const btn = document.createElement('button');
+    btn.className = 'page-thumb';
+    btn.type = 'button';
+    btn.dataset.src = src;
+
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = '';
+    img.loading = 'lazy';
+    btn.appendChild(img);
+
+    btn.addEventListener('click', () => showModal(src, btn));
+    pagesGrid.appendChild(btn);
+    pageThumbs.push(btn);
+  }
+
+  async function loadPagesList() {
+    pagesGrid.innerHTML = '';
+    pageThumbs = [];
+    pagesPanelHint.textContent = 'Loading pages...';
+
+    try {
+      const response = await fetch('pages/', { cache: 'no-store' });
+      let files = [];
+      if (response.ok) {
+        const html = await response.text();
+        files = extractPageLinks(html).filter(isSupportedImage);
+      }
+
+      if (!files.length) {
+        const manifestResponse = await fetch('pages/index.json', { cache: 'no-store' });
+        if (!manifestResponse.ok) {
+          throw new Error(`Failed to fetch pages manifest: ${manifestResponse.status}`);
+        }
+        const manifest = await manifestResponse.json();
+        if (Array.isArray(manifest)) {
+          files = manifest.map(normalizeManifestEntry).filter(Boolean);
+        } else if (Array.isArray(manifest.pages)) {
+          files = manifest.pages.map(normalizeManifestEntry).filter(Boolean);
+        }
+      }
+
+      const uniqueFiles = Array.from(new Set(files)).sort((a, b) =>
+        a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' })
+      );
+
+      if (!uniqueFiles.length) throw new Error('No images found');
+
+      uniqueFiles.forEach(addPageThumb);
+      pagesPanelHint.textContent = 'Tap a page to start coloring!';
+    } catch (err) {
+      console.warn('Unable to load pages list:', err);
+      pagesPanelHint.textContent = 'No coloring pages found in /pages.';
+    }
+  }
 
   // ─── Confirm Modal ─────────────────────────────────────────────────────────
   const confirmModal = document.getElementById('confirmModal');
@@ -459,10 +557,7 @@
     img.src = src;
   }
 
-  // ─── Thumbnail Click → Confirm Modal ──────────────────────────────────────
-  pageThumbs.forEach(btn => {
-    btn.addEventListener('click', () => showModal(btn.dataset.src, btn));
-  });
+  loadPagesList();
 
 })();
 

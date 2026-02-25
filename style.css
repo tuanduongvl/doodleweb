@@ -423,14 +423,6 @@ body.fill-mode #canvas {
   display: block;
 }
 
-.page-thumb span {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: capitalize;
-  letter-spacing: 0.03em;
-}
-
 /* === Confirm Modal === */
 #confirmModal {
   position: fixed;
