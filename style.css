@@ -121,6 +121,7 @@ body {
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
   outline: none;
   appearance: none;
@@ -288,9 +289,10 @@ body {
   background-size: 16px 16px, 22px 22px, 28px 28px;
   background-position: 0 0, 6px 10px, 12px 4px;
   mix-blend-mode: screen;
-  opacity: 0.85;
+  opacity: 1;
   pointer-events: none;
   animation: glitter-drift 3.5s linear infinite;
+  z-index: 2;
 }
 
 .swatch-glitter::before {
@@ -298,8 +300,13 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(140deg, rgba(255, 255, 255, 0.35), transparent 55%);
-  opacity: 0.7;
+  opacity: 0.85;
   pointer-events: none;
+  z-index: 1;
+}
+
+.swatch-glitter {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15), 0 0 12px rgba(255, 255, 255, 0.35);
 }
 
 @keyframes glitter-drift {

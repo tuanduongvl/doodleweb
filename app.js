@@ -5,7 +5,7 @@
   const MAX_UNDO = 30;
   let undoStack = [];
   let currentColor = '#ff4d6d';  // first core hue
-  let brushSize = 6;
+  let brushSize = 30;
   let isErasing = false;
   let isFilling = false;
   let isRainbow = false;
