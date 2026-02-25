@@ -79,7 +79,7 @@
     return brushSize * (0.4 + 1.2 * pressure);
   }
 
-  function buildGlitterPattern(baseColor) {
+  function buildGlitterPattern(baseColor, targetCtx = ctx) {
     const patternCanvas = document.createElement('canvas');
     const size = 36;
     patternCanvas.width = size;
@@ -109,7 +109,7 @@
       pctx.fill();
     }
 
-    return ctx.createPattern(patternCanvas, 'repeat');
+    return targetCtx.createPattern(patternCanvas, 'repeat');
   }
 
   function activeStrokeColor() {
@@ -176,7 +176,6 @@
     // Scanline stack flood fill (fast)
     const stack = [[px, py]];
     const visited = new Uint8Array(w * h);
-    const sparkleModulo = 97;
 
     while (stack.length) {
       const [cx, cy] = stack.pop();
@@ -193,17 +192,41 @@
       data[idx + 2] = fillCol[2];
       data[idx + 3] = fillCol[3];
 
-      if (isGlitter && !isRainbow && i % sparkleModulo === 0) {
-        data[idx] = 255;
-        data[idx + 1] = 255;
-        data[idx + 2] = 255;
-        data[idx + 3] = 255;
-      }
-
       stack.push([cx + 1, cy], [cx - 1, cy], [cx, cy + 1], [cx, cy - 1]);
     }
 
     ctx.putImageData(imgData, 0, 0);
+    if (isGlitter && !isRainbow) {
+      const maskData = new Uint8ClampedArray(w * h * 4);
+      for (let i = 0; i < visited.length; i++) {
+        if (!visited[i]) continue;
+        const mIdx = i * 4;
+        maskData[mIdx] = 255;
+        maskData[mIdx + 1] = 255;
+        maskData[mIdx + 2] = 255;
+        maskData[mIdx + 3] = 255;
+      }
+
+      const maskCanvas = document.createElement('canvas');
+      maskCanvas.width = w;
+      maskCanvas.height = h;
+      const maskCtx = maskCanvas.getContext('2d');
+      maskCtx.putImageData(new ImageData(maskData, w, h), 0, 0);
+
+      const glitterCanvas = document.createElement('canvas');
+      glitterCanvas.width = w;
+      glitterCanvas.height = h;
+      const glitterCtx = glitterCanvas.getContext('2d');
+      glitterCtx.fillStyle = buildGlitterPattern(currentColor, glitterCtx);
+      glitterCtx.fillRect(0, 0, w, h);
+      glitterCtx.globalCompositeOperation = 'destination-in';
+      glitterCtx.drawImage(maskCanvas, 0, 0);
+
+      ctx.save();
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.drawImage(glitterCanvas, 0, 0);
+      ctx.restore();
+    }
     applyContextDefaults();
   }
 
@@ -269,11 +292,13 @@
 
   // ─── Color Palette ─────────────────────────────────────────────────────────
   const swatches = document.querySelectorAll('.swatch[data-color]');
-  function applySelectedColor(activeEl) {
+  function applySelectedColor(activeEl, { keepRainbow = false } = {}) {
     setActiveSwatch(activeEl);
-    deactivateRainbow();
-    isGlitter = activeEl.classList.contains('swatch-glitter');
-    glitterPattern = isGlitter ? buildGlitterPattern(currentColor) : null;
+    if (!keepRainbow) {
+      deactivateRainbow();
+    }
+    isGlitter = !keepRainbow && activeEl.classList.contains('swatch-glitter');
+  glitterPattern = isGlitter ? buildGlitterPattern(currentColor) : null;
     if (isErasing) {
       deactivateEraser();
     }
@@ -296,13 +321,15 @@
     if (isRainbow) {
       isGlitter = false;
       glitterPattern = null;
-      applySelectedColor(swatchRainbow);
+      applySelectedColor(swatchRainbow, { keepRainbow: true });
     } else {
       swatchRainbow.classList.remove('active');
       // Reactivate first pastel as default
       const firstSwatch = document.querySelector('.swatch[data-color]');
       currentColor = firstSwatch.dataset.color;
       setActiveSwatch(firstSwatch);
+      isGlitter = firstSwatch.classList.contains('swatch-glitter');
+  glitterPattern = isGlitter ? buildGlitterPattern(currentColor) : null;
     }
   });
 
